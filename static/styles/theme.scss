@@ -1,0 +1,9 @@
+// Define variables to override default ones
+$primary-color: rgb(255,62,0);
+$error-color: #c02020;
+$font-size: 0.9rem;
+$font-size-sm: .8rem;
+$font-size-lg: 1rem;
+
+// Import full Spectre source code
+@import "../../node_modules/spectre.css/src/spectre";

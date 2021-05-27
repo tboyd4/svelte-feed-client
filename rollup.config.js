@@ -11,6 +11,15 @@ import typescript from '@rollup/plugin-typescript';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 
+const preprocess = sveltePreprocess({
+    scss: {
+      includePaths: ['src'],
+    },
+    postcss: {
+      plugins: [require('autoprefixer')],
+    },
+});
+
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
@@ -26,6 +35,7 @@ export default {
 		input: config.client.input().replace(/\.js$/, '.ts'),
 		output: config.client.output(),
 		plugins: [
+			preprocess,
 			replace({
 				preventAssignment: true,
 				values:{
@@ -81,6 +91,7 @@ export default {
 		input: { server: config.server.input().server.replace(/\.js$/, ".ts") },
 		output: config.server.output(),
 		plugins: [
+			preprocess,
 			replace({
 				preventAssignment: true,
 				values:{

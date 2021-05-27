@@ -1,22 +1,21 @@
-<script lang="ts">
-	import Nav from '../components/Nav.svelte';
-
-	export let segment: string;
-</script>
-
-<style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-</style>
-
-<Nav {segment}/>
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="..." class="navbar-brand mr-2">Spectre.css</a>
+    <a href="..." class="btn btn-link">Docs</a>
+    <a href="..." class="btn btn-link">GitHub</a>
+  </section>
+  <section class="navbar-section">
+    <div class="input-group input-inline">
+      <input class="form-input" type="text" placeholder="search" />
+      <button class="btn btn-primary input-group-btn">Search</button>
+    </div>
+  </section>
+</header>
 
 <main>
-	<slot></slot>
+  <slot />
 </main>
+
+<style lang="scss" global>
+  @import "../../static/styles/global.scss";
+</style>
